@@ -30,8 +30,12 @@
     brew_utils:
       - autojump
       - bash
+      - bash-completion2
       - brew-cask
+      - findutils
       - git
+      - moreutils
+      - nmap
       - pycodestyle
       - ssh-copy-id
       - thefuck

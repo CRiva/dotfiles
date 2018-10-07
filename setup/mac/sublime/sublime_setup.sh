@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# https://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
+
 source ~/dotfiles/private/platform
 
 if [ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3 ]; then 
