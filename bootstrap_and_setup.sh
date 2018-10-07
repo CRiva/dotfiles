@@ -1,7 +1,6 @@
 #!/bin/sh
 
 sh ~/dotfiles/bootstrap.sh
-sh ~/dotfiles/brew.sh
 sh ~/dotfiles/setup.sh
 
 echo "=> Restarting computer in 10 seconds. Press ctrl-c to cancel."

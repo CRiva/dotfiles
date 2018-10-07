@@ -51,7 +51,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 
 echo "--> Remapping trackpad"
 echo "----> Enabling Three Finger Drag"
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
 
 echo "----> Enabling Four Finger Space Shift"
@@ -143,6 +143,10 @@ echo "==> Dock & Mission Control"
 echo "--> Setting the icon size of Dock items to 40px"
 defaults write com.apple.dock tilesize -int 40
 
+echo "--> Setting the icon hover size of Dock items to 70px"
+defaults write com.apple.dock largesize -int 70
+defaults write com.apple.dock magnification -bool true
+
 echo "--> Setting minimize/maximize window effect to genie"
 defaults write com.apple.dock mineffect -string "genie"
 
@@ -154,9 +158,6 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 echo "--> Show indicator lights for open applications in the Dock"
 defaults write com.apple.dock show-process-indicators -bool true
-
-echo "--> Don't animate opening applications from the Dock"
-defaults write com.apple.dock launchanim -bool false
 
 echo "--> Speed up Mission Control animations"
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -180,9 +181,75 @@ defaults write com.apple.dock show-recents -bool false
 echo "--> Disable the Launchpad gesture (pinch with thumb and three fingers)"
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
+###############################################################################
+echo "==> Dictionary"                                                   #
+###############################################################################
+
+echo "--> Set text replacements"
+defaults write NSGlobalDomain NSUserDictionaryReplacementItems -array '{
+    on = 1;
+    replace = omw;
+    with = "On my way!";
+}' '{
+    on = 1;
+    replace = frick;
+    with = frick;
+}' '{
+    on = 1;
+    replace = haha;
+    with = haha;
+}' '{
+    on = 1;
+    replace = np;
+    with = "no problem";
+}' '{
+    on = 1;
+    replace = hbu;
+    with = "how about you";
+}' '{
+    on = 1;
+    replace = brb;
+    with = "be right back";
+}' '{
+    on = 1;
+    replace = idk;
+    with = "I dont know";
+}' '{
+    on = 1;
+    replace = ttyl;
+    with = "talk to you later";
+}' '{
+    on = 1;
+    replace = convo;
+    with = conversation;
+}' '{
+    on = 1;
+    replace = prolly;
+    with = probably;
+}' '{
+    on = 1;
+    replace = atm;
+    with = "at the moment";
+}' '{
+    on = 1;
+    replace = btw;
+    with = "by the way";
+}' '{
+    on = 1;
+    replace = gunna;
+    with = "going to";
+}' '{
+    on = 1;
+    replace = imma;
+    with = "im going to";
+}' '{
+    on = 1;
+    replace = ur;
+    with = your;
+}'
 
 ###############################################################################
-echo "=> Setting up Application Specific Settnings"
+echo "=> Setting up Application Specific Settings"
 ###############################################################################
 
 ###############################################################################
@@ -314,6 +381,27 @@ echo "--> Disable the all too sensitive backswipe on Magic Mouse"
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
 
 ###############################################################################
+echo "==> BitBar"
+###############################################################################
+
+echo "--> Disable Automatic checks for BitBar"
+defaults write com.matryer.BitBar SUEnableAutomaticChecks -bool false;
+
+echo "--> Disable SendProfileInfo for BitBar"
+defaults write com.matryer.BitBar SUSendProfileInfo -bool false
+
+echo "--> Setting Bitbar plugins directory to dotfiles Bitbar plugins directory"
+defaults write com.matryer.BitBar pluginsDirectory -string "~/dotfiles/setup/mac/application_settings/BitBar/plugins"
+
+###############################################################################
+echo "==> Flux"
+###############################################################################
+
+echo "--> Set Day (4600) and Sunset (2800) Warmth for Flux"
+defaults write org.herf.Flux dayColorTemp -int 4600;
+defaults write org.herf.Flux lateColorTemp -int 2800;
+
+###############################################################################
 echo "==> Kill affected applications"                                         #
 ###############################################################################
 
@@ -323,6 +411,8 @@ for app in "Activity Monitor" \
     "Google Chrome" \
     "Messages" \
     "Photos" \
+    "Flux" \
+    "BitBar" \
     "Safari" \
     "SystemUIServer" \
     "Terminal"; do

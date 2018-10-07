@@ -40,7 +40,7 @@ sh $DIR/setup/${platform}/links.sh
 echo "=> Configuring ${platform} specific system settings"
 sh $DIR/setup/${platform}/system_settings.sh
 
-echo "==> Configuring Sublime-Text 3 on ${platform}"
-sh $DIR/setup/${platform}/sublime/sublime_setup.sh
+echo "=> Setting Up Other Configuration Items"
+sh $DIR/extended_configurations.sh
 
 echo "=> Complete!"
