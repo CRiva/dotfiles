@@ -43,4 +43,4 @@ sh $DIR/setup/${platform}/system_settings.sh
 echo "=> Setting Up Other Configuration Items"
 sh $DIR/extended_configurations.sh
 
-echo "=> Complete!"
+echo "=> Setup Complete!"

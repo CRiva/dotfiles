@@ -17,7 +17,7 @@ esac
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 set -e
 
-echo "==> Bootstrapping OS X"
+echo "=> Bootstrapping OS X"
 
 echo "==> Xcode"
 if ! command -v cc >/dev/null; then
@@ -39,3 +39,5 @@ fi
 
 echo "==> Running ansible playbook"
 ansible-playbook playbook.yml -i localhost, -K
+
+echo "==> Finished Bootstrapping"

@@ -15,7 +15,7 @@
       - skype
       - slack
       - spotify
-      - sublime-text3
+      - sublime-text
       - vagrant
       - vagrant-manager
       - vanilla
@@ -35,6 +35,7 @@
       - brew-cask
       - findutils
       - git
+      - gnupg
       - moreutils
       - nmap
       - pycodestyle
