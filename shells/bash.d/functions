@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# ----------------------------------------------------------------------
+# BASH FUNCTIONS
+# ----------------------------------------------------------------------
+
+### DOTFILES
+brew_source() {
+	if which brew &> /dev/null && [ -f "$brew_prefix/$1" ]; then
+		source "$brew_prefix/$1";
+	fi
+}
+
+####
+# completion
+_complete_ssh_hosts ()
+{       
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+                    cut -f 1 -d ' ' | \
+                    sed -e s/,.*//g | \
+                    grep -v ^# | \
+                    uniq | \
+                    grep -v "\[" ;
+            cat ~/.ssh/config | \
+                    grep "^Host " | \
+                    awk '{print $2}'
+            `
+    COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+    return 0
+}
+complete -F _complete_ssh_hosts ssh
+
+function srch () {
+    if [ $# = 0 ] || [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+        echo -e "Find a word in files under the current directory ignoring .svn, log files and backups. Usage ${RED_FG}'srch word'$NC"
+        return
+    fi
+    grep -n -R $1 * | grep -v "\.svn" | grep -v "\.git" | grep -v "\.log" | grep -v "*~"
+}
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+ql () { 
+    qlmanage -p "$*" >& /dev/null; 
+} # ql: Opens any file in MacOS Quicklook Preview
+
+
+

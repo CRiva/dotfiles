@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Add ~/bin to the path
+export PATH="$HOME/bin:/usr/local/bin:$PATH";
+
+export EDITOR="vim"
+export VISUAL=$EDITOR
+
+export PS1="💩 ᕕ( ᐛ )ᕗ \W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PATH="$HOME/.jenv/bin:$PATH"

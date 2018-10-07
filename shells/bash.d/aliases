@@ -1,0 +1,50 @@
+#-------------------------------------------------------------------------------
+# command aliases
+#-------------------------------------------------------------------------------
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# aliases (from Dave)
+alias grep='grep --color=auto'
+alias l='ls -Fia'
+alias la='ls -ah'
+alias lf='ls -FA'
+alias ll='ls -lgsAh'
+alias lla='ls -lah'
+alias dir='ls -AlFio'
+alias cd..='cd ..'
+alias x='exit'
+alias h='history -r'
+alias more='less'
+alias ping='/sbin/ping -c 5'
+
+# more aliases (Connor)
+alias eb="vi ~/.bash_profile"
+alias sb="source ~/.bash_profile"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias gstat="git status"
+alias gst="git status"
+alias gaa="git add ."
+alias gps="git push"
+alias gpl="git pull"
+alias gco="git checkout"
+alias cpwd="pwd|tr -d '\n'|pbcopy"
+alias gcm="git commit -m"
+alias gl="git log --graph --pretty=\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\' --abbrev-commit"
+
+
+if [ "$PLATFORM" = "mac" ]; then
+    source ~/dotfiles/shells/bash.d/aliases-mac
+fi
