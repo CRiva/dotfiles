@@ -9,6 +9,8 @@
 You can clone the repository wherever you want, just be sure that there is a symlink to `~/dotfiles` otherwise the scripts will fail. 
 (For example, cloning the repo to `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.)
 
+Or you can just clone to your home directory. (`/Users/username/` for MacOS.)
+
 ```bash
 git clone https://github.com/CRiva/dotfiles.git && cd dotfiles
 ```
