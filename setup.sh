@@ -5,7 +5,7 @@ if [ "$DIR" = "." ]; then
 	DIR=$(pwd)
 fi
 
-echo "==> Detecting OS"
+echo "=> Detecting OS"
 platform="unknown"
 case $(uname) in
 	[Dd]arwin*)
@@ -31,17 +31,16 @@ fi
 echo "--> ${platform}"
 echo "PLATFORM=${platform}" > $DIR/private/platform
 
-echo "==> Linking dotfiles"
+echo "=> Linking dotfiles"
 cd ~ || exit 1
 
 sh $DIR/setup/links.sh
 sh $DIR/setup/${platform}/links.sh
 
-echo "==> Configuring Sublime-Text 3"
-
-sh $DIR/setup/sublime/sublime_setup.sh
-
-echo "==> Configuring ${platform} system settings"
+echo "=> Configuring ${platform} specific system settings"
 sh $DIR/setup/${platform}/system_settings.sh
 
-echo "==> Complete!"
+echo "==> Configuring Sublime-Text 3 on ${platform}"
+sh $DIR/setup/${platform}/sublime/sublime_setup.sh
+
+echo "=> Complete!"

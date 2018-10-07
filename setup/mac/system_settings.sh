@@ -182,6 +182,10 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
 
 ###############################################################################
+echo "=> Setting up Application Specific Settnings"
+###############################################################################
+
+###############################################################################
 echo "==> Safari & WebKit"
 ###############################################################################
 
@@ -326,4 +330,4 @@ for app in "Activity Monitor" \
 done
 
 
-echo "==> Done! Note that some of these changes require a logout/restart to take effect."
+echo "==> Done!"

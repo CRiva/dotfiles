@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source ~/dotfiles/private/platform
+
 if [ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3 ]; then 
     echo "--> Downloading Package Control";
     wget -O ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages https://packagecontrol.io/Package%20Control.sublime-package;
@@ -10,7 +12,7 @@ fi
 
 echo "--> Setting up sublime packages to install"
 mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-[ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings ] && ln -s ~/dotfiles/setup/sublime/packages ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
+[ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings ] && ln -s ~/dotfiles/setup/$PLATFORM/sublime/packages ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
 
 
 
