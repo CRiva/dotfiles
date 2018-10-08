@@ -385,7 +385,7 @@ echo "==> BitBar"
 ###############################################################################
 
 echo "--> Disable Automatic checks for BitBar"
-defaults write com.matryer.BitBar SUEnableAutomaticChecks -bool false;
+defaults write com.matryer.BitBar SUEnableAutomaticChecks -bool false
 
 echo "--> Disable SendProfileInfo for BitBar"
 defaults write com.matryer.BitBar SUSendProfileInfo -bool false
