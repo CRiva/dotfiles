@@ -4,6 +4,7 @@
     applications:
       - 1password
       - bitbar
+      - discord
       - disk-inventory-x
       - firefox
       - flux
