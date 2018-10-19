@@ -2,11 +2,17 @@
 
 source ~/dotfiles/private/platform
 
-echo "==> Further Homebrew Installations"
-sh ~/dotfiles/brew.sh
+DIR=$(dirname $0)
+if [ "$DIR" = "." ]; then
+	DIR=$(pwd)
+fi
 
-echo "==> Configuring Sublime-Text 3 on ${platform}"
-sh ~/dotfiles/setup/${platform}/sublime/sublime_setup.sh
+echo "==> Further Homebrew Installations"
+echo $DIR
+sh $DIR/brew.sh
+
+echo "==> Configuring Sublime-Text 3 on ${PLATFORM}"
+sh $DIR/setup/$PLATFORM/sublime/sublime_setup.sh
 
 echo "==> Installing rvm"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB

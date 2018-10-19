@@ -1,10 +1,9 @@
 #!/bin/sh
-#
+
 # https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh
-#
 # other brew helpfulness
 
-echo "==> Install GNU `sed`, overwriting the built-in `sed`."
+echo "==> Install GNU 'sed', overwriting the built-in 'sed'."
 brew install gnu-sed --with-default-names
 
 echo "==> Install imagemagick."

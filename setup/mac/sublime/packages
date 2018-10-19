@@ -1,28 +1,28 @@
 {
-        "bootstrapped": true,
-        "in_process_packages":
-        [
-        ],
-        "installed_packages":
-        [
-                "Alignment",
-                "All Autocomplete",
-                "ARM Assembly",
-                "AutoPEP8",
-                "Babel",
-                "Better CoffeeScript",
-                "Better RSpec",
-                "EditorConfig",
-                "Jedi - Python autocompletion",
-                "jQuery",
-                "Package Control",
-                "PackageResourceViewer",
-                "PowerShell",
-                "Ruby on Rails snippets",
-                "Sass",
-                "SideBarEnhancements",
-                "SublimeLinter",
-                "SublimeLinter-pycodestyle",
-                "WordCount"
-        ]
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"ARM Assembly",
+		"AutoPEP8",
+		"Babel",
+		"Better CoffeeScript",
+		"Better RSpec",
+		"EditorConfig",
+		"Jedi - Python autocompletion",
+		"jQuery",
+		"Package Control",
+		"PackageResourceViewer",
+		"PowerShell",
+		"Ruby on Rails snippets",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-pycodestyle",
+		"WordCount"
+	]
 }
