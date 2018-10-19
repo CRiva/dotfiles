@@ -16,7 +16,6 @@
       - spotify
       - sublime-text
       - vanilla
-      - virtualbox
       - vlc
     brew_taps:
       - caskroom/cask
