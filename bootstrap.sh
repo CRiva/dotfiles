@@ -37,6 +37,10 @@ if ! command -v ansible >/dev/null; then
 	brew install ansible
 fi
 
+echo "==> Turning on remote login and management for ansible to work"
+sudo systemsetup -setremotelogin on # deprecated, use 'sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist' instead 
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users admin -privs -all -restart -agent -menu
+
 echo "==> Running ansible playbook"
 ansible-playbook playbook.yml -i localhost, -kK
 
