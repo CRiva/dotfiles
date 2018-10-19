@@ -414,8 +414,7 @@ for app in "Activity Monitor" \
     "Flux" \
     "BitBar" \
     "Safari" \
-    "SystemUIServer" \
-    "Terminal"; do
+    "SystemUIServer"; do
     killall "${app}" &> /dev/null
 done
 
