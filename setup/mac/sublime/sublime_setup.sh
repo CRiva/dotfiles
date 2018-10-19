@@ -4,7 +4,7 @@
 
 source ~/dotfiles/private/platform
 
-if [ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3 ]; then 
+if [ ! -e ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages ]; then 
     echo "--> Installing Package Control";
     wget -O ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages https://packagecontrol.io/Package%20Control.sublime-package;
 else
