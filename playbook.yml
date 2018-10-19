@@ -11,28 +11,20 @@
       - google-chrome
       - keybase
       - oversight
-      - robo3T
       - rocket
       - slack
       - spotify
       - sublime-text
-      - vagrant
-      - vagrant-manager
       - vanilla
       - virtualbox
       - vlc
     brew_taps:
       - caskroom/cask
       - caskroom/versions # for sublime-text3
-      - homebrew/binary
-      - homebrew/dupes
-      - homebrew/versions
-    dotfile_repo_username: criva
     brew_utils:
       - autojump
       - bash
       - bash-completion2
-      - brew-cask
       - findutils
       - git
       - gnupg
@@ -44,28 +36,28 @@
     home: "{{ lookup('env', 'HOME' }}"
   tasks:
     - name: HOMEBREW | Install required Taps
-      shell: brew tap {{ item }}
-      with_items: brew_taps
-
-    - name: HOMEBREW | Install Cask
-      shell: brew install brew-cask
+      shell: /usr/local/bin/brew tap {{ item }}
+      with_items: "{{ brew_taps }}"
 
     - name: UTILS | Install
       homebrew:
         name: "{{ item }}"
         state: present
-      with_items: brew_utils
+      with_items: "{{ brew_utils }}"
 
     - name: UTILS | Cleanup
-      shell: brew cleanup
+      shell: /usr/local/bin/brew cleanup
 
     - name: CASKS | load list
-      shell: brew cask list | grep {{ item }}
+      shell: /usr/local/bin/brew cask list | grep {{ item }}
       register: installed_applications
-      with_items: applications
+      with_items: "{{ applications }}"
       ignore_errors: true
 
+    - set_fact:
+        installed_applications: "{{ installed_applications.results|map(attribute='stdout') }}"
+
     - name: CASKS | install
-      shell: brew cask install {{ item }}
-      with_items: applications
-      when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
+      shell: /usr/local/bin/brew cask install {{ item }}
+      with_items: "{{ applications }}"
+      when: item not in installed_applications
